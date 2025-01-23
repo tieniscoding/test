@@ -30,3 +30,13 @@ on_adapter(){
 	  sudo ip link set $iface up
 	done
 }
+
+
+case "$1" in
+	option1)
+		off_adapter()
+	 	;;
+  	option2)
+   		on_adapter()
+     		;;
+esac
