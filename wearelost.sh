@@ -20,23 +20,23 @@ iptables -P OUTPUT DROP
 
 
 off_adapter(){
-	for iface in $(ls /sys/class/net | grep -v lo); do
-	  sudo ip link set $iface down
+	for iface in $(glob /sys/class/net | grep -v lo); do
+	  sudo ip link set "$iface" down
 	done
 }
 
 on_adapter(){	
-	for iface in $(ls /sys/class/net | grep -v lo); do
-	  sudo ip link set $iface up
+	for iface in $(glob /sys/class/net | grep -v lo); do
+	  sudo ip link set "$iface" up
 	done
 }
 
 
 case "$1" in
 	option1)
-		off_adapter()
-	 	;;
+	        off_adapter
+	        ;;
   	option2)
-   		on_adapter()
-     		;;
+   		on_adapter
+     	               ;;
 esac
